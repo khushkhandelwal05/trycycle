@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from .models import userinfo
+from .models import userinfo,Bookings
 from django.http import HttpResponse
 from collections import deque, namedtuple
 
@@ -166,3 +166,17 @@ def farecal(request):
                     tot=tot+j[2]
             
             return render(request,'fare.html',{'fare_tot':'Your total fare would be '+str(tot)+'rs'}) 
+
+def rent_now(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        date=request.POST['date']
+        check=request.POST['check']
+        end=request.POST['end']
+        cht=request.POST['cht']
+
+            
+        booked=Bookings(user=username,slot=[date,check,end,cht])
+        booked.save()
+        return render(request,'Trycycle.html')
+        

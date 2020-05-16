@@ -9,3 +9,8 @@ class userinfo(models.Model):
     room_no = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     phone_no = models.BigIntegerField()
+    
+
+class Bookings(models.Model):
+    user=models.CharField(max_length=40)
+    slot=models.TextField()   
