@@ -14,3 +14,9 @@ class userinfo(models.Model):
 class Bookings(models.Model):
     user=models.CharField(max_length=40)
     slot=models.TextField()   
+
+class contact_us(models.Model):
+    name=models.CharField(max_length=40)
+    email=models.CharField(max_length=75)
+    subject=models.TextField()
+    feed=models.TextField()

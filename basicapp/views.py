@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from .models import userinfo,Bookings
+from .models import userinfo,Bookings,contact_us
 from django.http import HttpResponse
 from collections import deque, namedtuple
 
@@ -178,5 +178,16 @@ def rent_now(request):
             
         booked=Bookings(user=username,slot=[date,check,end,cht])
         booked.save()
+        return render(request,'Trycycle.html')
+
+def contact(request):
+    if request.method == 'POST':
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        feed=request.POST['feed']
+        contacted=contact_us(name=name,email=email,subject=subject,feed=feed)
+
+        contacted.save()
         return render(request,'Trycycle.html')
         

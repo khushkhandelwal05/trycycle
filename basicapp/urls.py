@@ -11,5 +11,6 @@ urlpatterns  = [
     path("logout",views.logout,name="logout"),
     path("fare",views.fare,name="fare"),
     path('farecal',views.farecal,name="farecal"),
-    path('rent_now',views.rent_now,name="rent_now")
+    path('rent_now',views.rent_now,name="rent_now"),
+    path('contact',views.contact,name='contact')
 ]
