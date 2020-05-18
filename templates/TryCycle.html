@@ -38,14 +38,13 @@
       <ul class="nav navbar-nav navbar-right">
             <li><a href="#HOME" class="nav-item">HOME</a></li>
             {% if user.is_authenticated %}
-            <li class="nav-item">Hello, {{user.first_name}}</li>
+            <li class="nav-item" id="userin">Hello, {{user.first_name}}</li>
             <li class="nav-link"><a href="logout">Logout</a></li>
-            <li><a href="#up" class="nav-item" id="up">SIGN UP</a></li>
+            <li><a href="#RENT" class="nav-item" id="rent">RENT-NOW</a></li>
             {% else %}
             <li><a href="#SIGN" class="nav-item" id="Sign">SIGN IN</a></li>
             <li><a href="#up" class="nav-item" id="up">SIGN UP</a></li>
             {% endif %}
-            <li><a href="#RENT" class="nav-item" id="rent">RENT-NOW</a></li>
             <li><a href="#ABOUT-US" class="nav-item">ABOUT US</a></li>
             <li><a href="#FEATURES" class="nav-item">FEATURES</a></li>
             <li><a href="#CHECKPOINTS" class="nav-item">CHECKPOINTS</a></li>
@@ -461,7 +460,7 @@
         </div>
     </div>
     
-    
+    {% if user.is_authenticated %}    
 <!--Rent-now-->
     <div class="bg-modal-3">
         <div class="modal-content-3">
@@ -469,7 +468,6 @@
             <form action="rent_now" method="POST">
                 {% csrf_token %}
             <img src="{% static 'images/avatar.jpg' %}" class="rounded">
-            <input type="text" placeholder="Username" class="form-control" name="username" >
             <input type="date" placeholder="dd/mm/yr" class="form-control" name="date" >
             <select class="form-control" name='check'>
                 <option disabled>Select starting Point</option>
@@ -496,6 +494,7 @@
             </form>
         </div>
     </div>
+    {% endif %}
     
     
     
@@ -527,7 +526,10 @@
         document.querySelector('.close-2').addEventListener('click', function(){
         document.querySelector('.bg-modal-2').style.display ='none';
     })
-        
+</script>
+{% if user.is_authenticated %}
+<script>
+    
         
         //rent
             document.getElementById('rent').addEventListener('click',
@@ -537,8 +539,10 @@
         document.querySelector('.close-3').addEventListener('click', function(){
         document.querySelector('.bg-modal-3').style.display ='none';
     })
+
         
     </script>
+    {% endif %}
     
     <script
     

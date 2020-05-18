@@ -165,11 +165,12 @@ def farecal(request):
                 if(tab[i]==j[0] and tab[i+1]==j[1]):
                     tot=tot+j[2]
             
-            return render(request,'fare.html',{'fare_tot':'Your total fare would be '+str(tot)+'rs'}) 
+        return render(request,'fare.html',{'fare_tot':'Your total fare would be '+str(tot)+'rs'}) 
 
 def rent_now(request):
     if request.method == 'POST':
-        username = request.POST['username']
+        username = None
+        username = request.user.username
         date=request.POST['date']
         check=request.POST['check']
         end=request.POST['end']
