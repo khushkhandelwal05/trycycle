@@ -13,7 +13,10 @@ class userinfo(models.Model):
 
 class Bookings(models.Model):
     user=models.CharField(max_length=40)
-    slot=models.TextField()   
+    date=models.CharField(max_length=10)
+    check=models.CharField(max_length=40)
+    end=models.CharField(max_length=40)
+    cht=models.CharField(max_length=40)
 
 class contact_us(models.Model):
     name=models.CharField(max_length=40)

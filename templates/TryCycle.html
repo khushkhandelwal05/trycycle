@@ -41,6 +41,7 @@
             <li class="nav-item" id="userin">Hello, {{user.first_name}}</li>
             <li class="nav-link"><a href="logout">Logout</a></li>
             <li><a href="#RENT" class="nav-item" id="rent">RENT-NOW</a></li>
+            <li class="nav-link"><a href="mybookings">My Bookings</a></li>
             {% else %}
             <li><a href="#SIGN" class="nav-item" id="Sign">SIGN IN</a></li>
             <li><a href="#up" class="nav-item" id="up">SIGN UP</a></li>
@@ -78,9 +79,13 @@
                     <p>Made with love for vitians :)</p>
                     </div>
                 <div class="buttons">
+                    {% if user.is_authenticated %}
+                    <a class="btn btn-download" href="#ABOUT-US">Take a tour<i class="fas fa-download"></i></a> 
+                    {% else %}
                     <a class="btn btn-download" style="margin-right:20px;" id="sign2">SIGN IN</a>
-                    <a class="btn btn-download" href="#ABOUT-US">Take a tour<i class="fas fa-download"></i>
-                    </a>  
+                    <a class="btn btn-download" href="#ABOUT-US">Take a tour<i class="fas fa-download"></i></a> 
+                    {% endif %}
+                     
                 </div>
             </div>
             <div class="col-md-4">

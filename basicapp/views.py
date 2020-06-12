@@ -177,7 +177,7 @@ def rent_now(request):
         cht=request.POST['cht']
 
             
-        booked=Bookings(user=username,slot=[date,check,end,cht])
+        booked=Bookings(user=username,date=date,check=check,end=end,cht=cht)
         booked.save()
         return render(request,'Trycycle.html')
 
@@ -191,4 +191,9 @@ def contact(request):
 
         contacted.save()
         return render(request,'Trycycle.html')
+
+def mybookings(request):
+    booking_list = Bookings.objects.order_by('id')
+    date_dict = {'bookings':booking_list}
+    return render(request,'mybookings.html',context=date_dict)
         
