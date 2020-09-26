@@ -196,4 +196,7 @@ def mybookings(request):
     booking_list = Bookings.objects.order_by('id')
     date_dict = {'bookings':booking_list}
     return render(request,'mybookings.html',context=date_dict)
+
+def bicycle(request):
+    return render(request,'bicycle.html')
         

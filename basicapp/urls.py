@@ -13,5 +13,6 @@ urlpatterns  = [
     path('farecal',views.farecal,name="farecal"),
     path('rent_now',views.rent_now,name="rent_now"),
     path('contact',views.contact,name='contact'),
-    path('mybookings',views.mybookings,name='mybookings')
+    path('mybookings',views.mybookings,name='mybookings'),
+    path('bicycle',views.bicycle,name='bicycle')
 ]

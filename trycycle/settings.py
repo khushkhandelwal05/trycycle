@@ -78,9 +78,9 @@ WSGI_APPLICATION = 'trycycle.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'Trycycle',
-        'USER': 'postgres',
+        'USER': 'root',
         'PASSWORD': '1234',
         'HOST' : 'localhost',
     }
